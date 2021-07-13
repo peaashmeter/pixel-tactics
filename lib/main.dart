@@ -72,17 +72,6 @@ class _SearchFieldState extends State<SearchField> {
   }
 }
 
-/*
-List<TabItem> buildContent() {
-  var l = <TabItem>[];
-  for (var i = 0; i < 100; i++) {
-    var name = 'item$i';
-    l.add(TabItem());
-  }
-  return l;
-}
-*/
-
 void onSearchButtonPressed() => null;
 
 // ignore: must_be_immutable
