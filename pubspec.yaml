@@ -46,6 +46,7 @@ flutter:
   assets:
     - assets/heropics/
     - assets/icons/
+    - assets/logo/
   
   fonts:
     - family: Thintel
