@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter/foundation.dart';
 
 var query = ValueNotifier('');
@@ -97,9 +98,17 @@ class TabItem extends StatelessWidget {
                 fit: BoxFit.fitHeight,
                 filterQuality: FilterQuality.none,
               ),
-              Text(
-                name,
-                style: TextStyle(fontFamily: 'Thintel', fontSize: 64),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      name,
+                      style: TextStyle(fontFamily: 'Thintel', fontSize: 64),
+                    ),
+                  ),
+                ),
               ),
             ],
           )),
@@ -110,10 +119,7 @@ class TabItem extends StatelessWidget {
 abstract class DetailsScreen extends StatelessWidget {
   const DetailsScreen();
   @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
+  Widget build(BuildContext context);
 }
 
 class SearchableListView extends StatefulWidget {
