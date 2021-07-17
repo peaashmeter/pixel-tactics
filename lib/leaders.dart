@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ptapp/search_page.dart';
+import 'package:flutter/services.dart';
+import 'dart:async';
+import 'dart:convert';
 
 class LeadersPage extends SearchPage {
   LeadersPage() : super(contentList, 'Лидеры');
@@ -7,20 +10,59 @@ class LeadersPage extends SearchPage {
 
 class LeaderDetailsScreen extends DetailsScreen {
   final String name;
-  final String hero;
   final String picture;
+  final String hero;
   final int atk;
   final int def;
   final String ability;
+  final String title;
 
-  const LeaderDetailsScreen({
-    required this.name,
-    required this.hero,
+  LeaderDetailsScreen(
+      {required this.name,
+      required this.picture,
+      required this.hero,
+      required this.atk,
+      required this.def,
+      required this.ability,
+      required this.title});
+
+  // LeaderDetailsScreen.fromJson(Map<String, dynamic> json)
+  //     : name = json['name'],
+  //       hero = json['hero'],
+  //       picture = json['picture'],
+  //       atk = json['atk'],
+  //       def = json['def'],
+  //       ability = json['ability'],
+  //       title = json['title'];
+
+  Widget build(BuildContext context) {
+    return DetailsWidget(
+        picture: picture,
+        name: name,
+        atk: atk,
+        def: def,
+        title: title,
+        ability: ability);
+  }
+}
+
+class DetailsWidget extends StatelessWidget {
+  const DetailsWidget({
+    Key? key,
     required this.picture,
+    required this.name,
     required this.atk,
     required this.def,
+    required this.title,
     required this.ability,
-  });
+  }) : super(key: key);
+
+  final String picture;
+  final String name;
+  final int atk;
+  final int def;
+  final String title;
+  final String ability;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +81,19 @@ class LeaderDetailsScreen extends DetailsScreen {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
-                        picture,
+                        'assets/heropics/$picture.png',
                         height: 100,
                         fit: BoxFit.fitHeight,
                         filterQuality: FilterQuality.none,
                       ),
-                      Text(name,
-                          style:
-                              TextStyle(fontFamily: 'Thintel', fontSize: 42)),
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(name,
+                              style: TextStyle(
+                                  fontFamily: 'Thintel', fontSize: 42)),
+                        ),
+                      ),
                       Stack(alignment: Alignment.center, children: [
                         Image.asset('assets/icons/sword.png'),
                         Text(atk.toString(),
@@ -84,6 +131,34 @@ class LeaderDetailsScreen extends DetailsScreen {
               children: [
                 Expanded(
                   child: Container(
+                    color: Colors.white,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(minHeight: 10),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontFamily: 'Thintel', fontSize: 32),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                    child: Container(
+                  height: 50,
+                ))
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
                     color: Color(0xffe9ddef),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(minHeight: 100),
@@ -116,17 +191,49 @@ class LeaderDetailsScreen extends DetailsScreen {
   }
 }
 
+Future<Map<String, dynamic>> readJson(path) async {
+  String jsonAsString = await rootBundle.loadString(path);
+  return jsonDecode(jsonAsString) as Map<String, dynamic>;
+}
+
 List<TabItem> contentList = [
   TabItem(
-      'Каденза',
-      'assets/heropics/knight.png',
-      1,
-      LeaderDetailsScreen(
+      name: 'Каденза',
+      picture: 'knight',
+      set: 1,
+      details: LeaderDetailsScreen(
         name: 'Каденза',
+        picture: 'knight',
         hero: 'Рыцарь',
-        picture: 'assets/heropics/knight.png',
         atk: 4,
         def: 20,
         ability: 'Ваши герои и лидер получают на 1 меньше урона от атак',
+        title: 'Механическая пехотная дивизия',
       )),
+  TabItem(
+      name: 'Заамассал Кетт',
+      picture: 'planestalker',
+      set: 1,
+      details: LeaderDetailsScreen(
+          name: 'Заамассал Кетт',
+          picture: 'planestalker',
+          hero: 'Сталкер',
+          atk: 4,
+          def: 19,
+          ability:
+              'Этот лидер обладает дальней атакой. Все герои в этом отряде получают дальнюю атаку.',
+          title: 'Сталкеры')),
+  TabItem(
+      name: 'Арек Рассел Зейн',
+      picture: 'illusionist',
+      set: 1,
+      details: LeaderDetailsScreen(
+          name: 'Арек Рассел Зейн',
+          picture: 'illusionist',
+          hero: 'Иллюзионист',
+          atk: 4,
+          def: 15,
+          ability:
+              'Каждый раз, когда герой или лидер соперника совершают ближнюю атаку, вы решаете, какую цель он атакует. (Новая цель должна быть в доступности для ближней атаки).',
+          title: 'Призрачный взвод'))
 ];

@@ -73,27 +73,37 @@ class _SearchFieldState extends State<SearchField> {
   }
 }
 
-// ignore: must_be_immutable
 class TabItem extends StatelessWidget {
   final String name;
   final String picture;
   final int set;
   final DetailsScreen details;
-  int colorIndex = 0;
+  //int colorIndex = 0;
+  final List<Color> setColors = [
+    Color(0xffe6b8af),
+    Color(0xffb6d7a8),
+    Color(0xff9fc5e8),
+    Color(0xfffce5cd),
+    Color(0xffd9d9d9)
+  ];
 
-  TabItem(this.name, this.picture, this.set, this.details);
+  TabItem(
+      {required this.name,
+      required this.picture,
+      required this.set,
+      required this.details});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (buildContext) => details)),
       child: Container(
-          color: (colorIndex % 2 == 0) ? Colors.white : Colors.blueGrey.shade50,
+          color: setColors[set - 1],
           height: 100,
           child: Row(
             children: [
               Image.asset(
-                picture,
+                'assets/heropics/$picture.png',
                 height: 100,
                 fit: BoxFit.fitHeight,
                 filterQuality: FilterQuality.none,
@@ -117,7 +127,8 @@ class TabItem extends StatelessWidget {
 }
 
 abstract class DetailsScreen extends StatelessWidget {
-  const DetailsScreen();
+  DetailsScreen();
+
   @override
   Widget build(BuildContext context);
 }
@@ -132,22 +143,26 @@ class SearchableListView extends StatefulWidget {
 }
 
 class _SearchableListViewState extends State<SearchableListView> {
-  List<TabItem> prepareContent(List<TabItem> contentList, String query) {
+  List<Widget> prepareContent(List<TabItem> contentList, String query) {
     var l = contentList
         .where((element) =>
             element.name.toLowerCase().contains(query.toLowerCase()))
         .toList()
           ..sort((a, b) => a.name.compareTo(b.name));
-    for (var i in l) {
-      (l.indexOf(i) % 2 == 0) ? i.colorIndex = 0 : i.colorIndex = 1;
-    }
+
     return l;
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: prepareContent(widget._content, widget._query),
-    );
+    var l = prepareContent(widget._content, widget._query);
+    return ListView.separated(
+        itemBuilder: (context, index) => l[index],
+        separatorBuilder: (context, index) => Divider(
+              height: 1,
+              thickness: 3,
+              color: Colors.black87,
+            ),
+        itemCount: l.length);
   }
 }

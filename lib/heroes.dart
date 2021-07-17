@@ -16,7 +16,7 @@ class HeroDetailsScreen extends DetailsScreen {
   final String rear;
   final String order;
 
-  const HeroDetailsScreen(
+  HeroDetailsScreen(
       {required this.name,
       required this.picture,
       required this.atk,
@@ -25,6 +25,42 @@ class HeroDetailsScreen extends DetailsScreen {
       required this.flank,
       required this.rear,
       required this.order});
+
+  @override
+  Widget build(BuildContext context) {
+    return DetailsWidget(
+        picture: picture,
+        name: name,
+        atk: atk,
+        def: def,
+        vanguard: vanguard,
+        flank: flank,
+        rear: rear,
+        order: order);
+  }
+}
+
+class DetailsWidget extends StatelessWidget {
+  const DetailsWidget({
+    Key? key,
+    required this.picture,
+    required this.name,
+    required this.atk,
+    required this.def,
+    required this.vanguard,
+    required this.flank,
+    required this.rear,
+    required this.order,
+  }) : super(key: key);
+
+  final String picture;
+  final String name;
+  final int atk;
+  final int def;
+  final String vanguard;
+  final String flank;
+  final String rear;
+  final String order;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +79,7 @@ class HeroDetailsScreen extends DetailsScreen {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
-                        picture,
+                        'assets/heropics/$picture.png',
                         height: 100,
                         fit: BoxFit.fitHeight,
                         filterQuality: FilterQuality.none,
@@ -182,12 +218,12 @@ class HeroDetailsScreen extends DetailsScreen {
 
 List<TabItem> contentList = [
   TabItem(
-      'Рыцарь',
-      'assets/heropics/knight.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Рыцарь',
+      picture: 'knight',
+      set: 1,
+      details: HeroDetailsScreen(
         name: 'Рыцарь',
-        picture: 'assets/heropics/knight.png',
+        picture: 'knight',
         atk: 3,
         def: 10,
         vanguard:
@@ -199,12 +235,12 @@ List<TabItem> contentList = [
             'Нанесите по 4 урона каждому герою и лидеру соперника в ближнем бою',
       )),
   TabItem(
-      'Дракон-маг',
-      'assets/heropics/dragon_mage.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Дракон-маг',
+      picture: 'dragon_mage',
+      set: 1,
+      details: HeroDetailsScreen(
         name: 'Дракон-маг',
-        picture: 'assets/heropics/dragon_mage.png',
+        picture: 'dragon_mage',
         atk: 6,
         def: 3,
         vanguard: 'Заклинание: герой в ближнем бою повержен',
@@ -214,12 +250,12 @@ List<TabItem> contentList = [
             'Выбранный герой получает +5 к силе атаки до конца текущей волны',
       )),
   TabItem(
-      'Жрица',
-      'assets/heropics/priestess.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Жрица',
+      picture: 'priestess',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Жрица',
-          picture: 'assets/heropics/priestess.png',
+          picture: 'priestess',
           atk: 1,
           def: 7,
           vanguard: 'Заклинание: исцелите до 4 урона у любого героя.',
@@ -228,12 +264,12 @@ List<TabItem> contentList = [
               'Заклинание: воскресите тело. Жрица получает урон, равный базовым жизням воскрешенного героя',
           order: 'Воскресите тело')),
   TabItem(
-      'Берсерк',
-      'assets/heropics/berserker.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Берсерк',
+      picture: 'berserker',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Берсерк',
-          picture: 'assets/heropics/berserker.png',
+          picture: 'berserker',
           atk: 3,
           def: 6,
           vanguard: 'Получает на 1 меньше урона от атак и +2 к силе атаки',
@@ -244,12 +280,12 @@ List<TabItem> contentList = [
           order:
               'Первый герой в каждом столбце в этом отряде проводит ближнюю атаку, но нельзя атаковать лидера')),
   TabItem(
-      'Ученый',
-      'assets/heropics/scientist.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Ученый',
+      picture: 'scientist',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Ученый',
-          picture: 'assets/heropics/scientist.png',
+          picture: 'scientist',
           atk: 2,
           def: 5,
           vanguard:
@@ -259,12 +295,12 @@ List<TabItem> contentList = [
               'Заклинание: другой герой в этом отряде совершает ближнюю атаку',
           order: 'Получите 3 дополнительных действия в эту ')),
   TabItem(
-      'Алхимик',
-      'assets/heropics/alchemist.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Алхимик',
+      picture: 'alchemist',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Алхимик',
-          picture: 'assets/heropics/alchemist.png',
+          picture: 'alchemist',
           atk: 2,
           def: 4,
           vanguard: 'Перехват. Получает на 2 урона меньше от атак (мин. 1)',
@@ -274,12 +310,12 @@ List<TabItem> contentList = [
           order:
               'Нанесите 7 урона героям. Вы можете распределить этот урон как хотите')),
   TabItem(
-      'Ассассин',
-      'assets/heropics/assassin.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Ассассин',
+      picture: 'assassin',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Ассассин',
-          picture: 'assets/heropics/assassin.png',
+          picture: 'assassin',
           atk: 3,
           def: 1,
           vanguard: 'Базовая сила атаки удваивается против лидеров',
@@ -287,12 +323,12 @@ List<TabItem> contentList = [
           rear: 'Заклинание: нанесите 3 урона лидеру соперника',
           order: 'Любой герой повержен')),
   TabItem(
-      'Двойник',
-      'assets/heropics/doppelganger.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Двойник',
+      picture: 'doppelganger',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Двойник',
-          picture: 'assets/heropics/doppelganger.png',
+          picture: 'doppelganger',
           atk: 3,
           def: 5,
           vanguard:
@@ -303,12 +339,12 @@ List<TabItem> contentList = [
               'Заклинание: скопируйте базовое заклинание тыла любого другого героя авангарда',
           order: 'Покажите приказ со своей руки и выполните его эффект')),
   TabItem(
-      'Повелитель',
-      'assets/heropics/overlord.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Повелитель',
+      picture: 'overlord',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Повелитель',
-          picture: 'assets/heropics/overlord.png',
+          picture: 'overlord',
           atk: 3,
           def: 7,
           vanguard: 'Перехват',
@@ -318,12 +354,12 @@ List<TabItem> contentList = [
           order:
               'Наймите сколько угодно героев в один любой ряд вашего отряда')),
   TabItem(
-      'Пиромант',
-      'assets/heropics/pyromancer.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Пиромант',
+      picture: 'pyromancer',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Пиромант',
-          picture: 'assets/heropics/pyromancer.png',
+          picture: 'pyromancer',
           atk: 3,
           def: 3,
           vanguard:
@@ -333,12 +369,12 @@ List<TabItem> contentList = [
           order:
               'Нанесите по 7 урона всем героям в авангарде во всех отрядах')),
   TabItem(
-      'Талисман',
-      'assets/heropics/mascot.png',
-      1,
-      HeroDetailsScreen(
-          name: 'Талисман',
-          picture: 'assets/heropics/mascot.png',
+      name: 'Талисман',
+      picture: 'mascot',
+      set: 1,
+      details: HeroDetailsScreen(
+          name: 'Пиромант',
+          picture: 'pyromancer',
           atk: 1,
           def: 4,
           vanguard:
@@ -349,12 +385,12 @@ List<TabItem> contentList = [
               'Заклинание: проведите дальнюю атаку другим героям тыла в этом отряде',
           order: 'Используйте эффект приказа с карты лидера')),
   TabItem(
-      'Ведьма',
-      'assets/heropics/witch.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Ведьма',
+      picture: 'witch',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Ведьма',
-          picture: 'assets/heropics/witch.png',
+          picture: 'witch',
           atk: 1,
           def: 5,
           vanguard:
@@ -364,12 +400,12 @@ List<TabItem> contentList = [
           rear: 'Заклинание: уберите все тела в одном ряду в любом отряде',
           order: 'Верните все тела одного ряда в руки владельцев')),
   TabItem(
-      'Боец',
-      'assets/heropics/fighter.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Боец',
+      picture: 'fighter',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Боец',
-          picture: 'assets/heropics/fighter.png',
+          picture: 'fighter',
           atk: 4,
           def: 8,
           vanguard: 'Перехват',
@@ -378,12 +414,12 @@ List<TabItem> contentList = [
           order:
               'Выберите столбец. Нанесите по 5 урона каждому герою в этом столбце во всех отрядах')),
   TabItem(
-      'Стрелок',
-      'assets/heropics/gunner.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Стрелок',
+      picture: 'gunner',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Стрелок',
-          picture: 'assets/heropics/gunner.png',
+          picture: 'gunner',
           atk: 5,
           def: 4,
           vanguard: 'Дальняя атака. +3 к силе атаки против героев с перехватов',
@@ -391,12 +427,12 @@ List<TabItem> contentList = [
           rear: 'Дальняя атака',
           order: 'Нанесите по 5 урона каждому герою в тылу во всех отрядах')),
   TabItem(
-      'Целитель',
-      'assets/heropics/healer.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Целитель',
+      picture: 'healer',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Целитель',
-          picture: 'assets/heropics/healer.png',
+          picture: 'healer',
           atk: 1,
           def: 4,
           vanguard: 'Перехват. Получает на 2 урона меньше от атак',
@@ -406,12 +442,12 @@ List<TabItem> contentList = [
           order:
               'Исцелите до 10 урона. Распределите это исцеление между героями как хотите')),
   TabItem(
-      'Гомункул',
-      'assets/heropics/homunculus.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Гомункул',
+      picture: 'homunculus',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Гомункул',
-          picture: 'assets/heropics/homunculus.png',
+          picture: 'homunculus',
           atk: 3,
           def: 7,
           vanguard: 'Перехват. +2 к силе атаки',
@@ -421,12 +457,12 @@ List<TabItem> contentList = [
               'Когда герой в тылу вашего отряда должен получить урон, вы можете переместить этот урон на этого героя',
           order: 'Совершите перераспределение героев и тел как хотите')),
   TabItem(
-      'Ловчий',
-      'assets/heropics/trapper.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Ловчий',
+      picture: 'trapper',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Ловчий',
-          picture: 'assets/heropics/trapper.png',
+          picture: 'trapper',
           atk: 4,
           def: 5,
           vanguard: 'Перехват. Этот герой не получает урон от дальних атак',
@@ -436,12 +472,12 @@ List<TabItem> contentList = [
               'Заклинание: выбранный соперник должен сбросить случайную карту',
           order: 'Выбранный соперник должен сбросить 3 случайные карты')),
   TabItem(
-      'Вампир',
-      'assets/heropics/vampire.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Вампир',
+      picture: 'vampire',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Вампир',
-          picture: 'assets/heropics/vampire.png',
+          picture: 'vampire',
           atk: 2,
           def: 6,
           vanguard:
@@ -453,12 +489,12 @@ List<TabItem> contentList = [
           order:
               'Переместите весь урон с одного героя на любого другого героя')),
   TabItem(
-      'Вампир',
-      'assets/heropics/paladin.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Паладин',
+      picture: 'paladin',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Паладин',
-          picture: 'assets/heropics/paladin.png',
+          picture: 'paladin',
           atk: 4,
           def: 6,
           vanguard: 'Перехват',
@@ -468,12 +504,12 @@ List<TabItem> contentList = [
           order:
               'Свободно перераспределите героев и/или тела в одном столбце любого отряда')),
   TabItem(
-      'Оракул',
-      'assets/heropics/oracle.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Оракул',
+      picture: 'oracle',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Оракул',
-          picture: 'assets/heropics/oracle.png',
+          picture: 'oracle',
           atk: 2,
           def: 4,
           vanguard:
@@ -484,12 +520,12 @@ List<TabItem> contentList = [
           order:
               'Сбросьте все карты с руки и возьмите из колоды на одну карту больше. (Эта карта в счет не идет)')),
   TabItem(
-      'Призыватель',
-      'assets/heropics/summoner.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Призыватель',
+      picture: 'summoner',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Призыватель',
-          picture: 'assets/heropics/summoner.png',
+          picture: 'summoner',
           atk: 2,
           def: 5,
           vanguard:
@@ -501,12 +537,12 @@ List<TabItem> contentList = [
           order:
               'Назовите карту. Поищите ее в своей колоде. Если нашли, покажите и возьмите в руку. Затем перемешайте колоду')),
   TabItem(
-      'Мистик',
-      'assets/heropics/mystic.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Мистик',
+      picture: 'mystic',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Мистик',
-          picture: 'assets/heropics/mystic.png',
+          picture: 'mystic',
           atk: 1,
           def: 7,
           vanguard: 'Перехват. Заклинание: исцелите весь урон и с этого героя',
@@ -517,12 +553,12 @@ List<TabItem> contentList = [
           order:
               'Получите 3 действия. Вы можете потратить их на розыгрыш приказов, операций или ловушек')),
   TabItem(
-      'Храмовник',
-      'assets/heropics/templar.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Храмовник',
+      picture: 'templar',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Храмовник',
-          picture: 'assets/heropics/templar.png',
+          picture: 'templar',
           atk: 1,
           def: 6,
           vanguard:
@@ -533,12 +569,12 @@ List<TabItem> contentList = [
           order:
               'Любой герой, который атакует или атаковал ваш отряд ближней атакой в эту волну, повержен')),
   TabItem(
-      'Иллюзионист',
-      'assets/heropics/illusionist.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Иллюзионист',
+      picture: 'illusionist',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Иллюзионист',
-          picture: 'assets/heropics/illusionist.png',
+          picture: 'illusionist',
           atk: 4,
           def: 5,
           vanguard:
@@ -550,12 +586,12 @@ List<TabItem> contentList = [
           order:
               'Возьмите случайную карту с руки соперника, выполните ее приказ, а затем сбросьте')),
   TabItem(
-      'Сталкер',
-      'assets/heropics/planestalker.png',
-      1,
-      HeroDetailsScreen(
+      name: 'Сталкер',
+      picture: 'planestalker',
+      set: 1,
+      details: HeroDetailsScreen(
           name: 'Сталкер',
-          picture: 'assets/heropics/planestalker.png',
+          picture: 'planestalker',
           atk: 3,
           def: 7,
           vanguard: 'Перехват. Дальняя атака',
