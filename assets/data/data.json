@@ -5,8 +5,6 @@
             "picture": "knight",
             "set": 1,
             "details": {
-                "name": "Рыцарь",
-                "picture": "knight",
                 "atk": 3,
                 "def": 10,
                 "vanguard": "Перехват. Нанесите 2 урона герою, который выбрал этого героя как цель своей атаки",
@@ -20,8 +18,6 @@
             "picture": "dragon_mage",
             "set": 1,
             "details": {
-                "name": "Дракон-маг",
-                "picture": "dragon_mage",
                 "atk": 6,
                 "def": 3,
                 "vanguard": "Заклинание: герой в ближнем бою повержен",
@@ -35,8 +31,6 @@
             "picture": "priestess",
             "set": 1,
             "details": {
-                "name": "Жрица",
-                "picture": "priestess",
                 "atk": 1,
                 "def": 7,
                 "vanguard": "Заклинание: исцелите до 4 урона у любого героя.",
@@ -50,8 +44,6 @@
             "picture": "berserker",
             "set": 1,
             "details": {
-                "name": "Берсерк",
-                "picture": "berserker",
                 "atk": 3,
                 "def": 6,
                 "vanguard": "Получает на 1 меньше урона от атак и +2 к силе атаки",
@@ -65,8 +57,6 @@
             "picture": "scientist",
             "set": 1,
             "details": {
-                "name": "Ученый",
-                "picture": "scientist",
                 "atk": 2,
                 "def": 5,
                 "vanguard": "Заклинание: выберите соперника. Он теряет 1 действие в следующую волну (до мин. 1}",
@@ -80,8 +70,6 @@
             "picture": "alchemist",
             "set": 1,
             "details": {
-                "name": "Алхимик",
-                "picture": "alchemist",
                 "atk": 2,
                 "def": 4,
                 "vanguard": "Перехват. Получает на 2 урона меньше от атак (мин. 1}",
@@ -95,8 +83,6 @@
             "picture": "assassin",
             "set": 1,
             "details": {
-                "name": "Ассассин",
-                "picture": "assassin",
                 "atk": 3,
                 "def": 1,
                 "vanguard": "Базовая сила атаки удваивается против лидеров",
@@ -110,8 +96,6 @@
             "picture": "doppelganger",
             "set": 1,
             "details": {
-                "name": "Двойник",
-                "picture": "doppelganger",
                 "atk": 3,
                 "def": 5,
                 "vanguard": "Заклинание: скопируйте базовое заклинание авангарда любого другого героя авангарда",
@@ -125,8 +109,6 @@
             "picture": "overlord",
             "set": 1,
             "details": {
-                "name": "Повелитель",
-                "picture": "overlord",
                 "atk": 3,
                 "def": 7,
                 "vanguard": "Перехват",
@@ -140,8 +122,6 @@
             "picture": "pyromancer",
             "set": 1,
             "details": {
-                "name": "Пиромант",
-                "picture": "pyromancer",
                 "atk": 3,
                 "def": 3,
                 "vanguard": "Заклинание: нанесите по 3 урона каждому герою и лидеру соперника в ближнем бою",
@@ -155,8 +135,6 @@
             "picture": "mascot",
             "set": 1,
             "details": {
-                "name": "Пиромант",
-                "picture": "pyromancer",
                 "atk": 1,
                 "def": 4,
                 "vanguard": "Заклинание: проведите ближнюю атаку другим героям авангарда в этом отряде",
@@ -170,8 +148,6 @@
             "picture": "witch",
             "set": 1,
             "details": {
-                "name": "Ведьма",
-                "picture": "witch",
                 "atk": 1,
                 "def": 5,
                 "vanguard": "Этот герой получает +1 к силе атаки за каждое тело во всех отрядах",
@@ -185,8 +161,6 @@
             "picture": "fighter",
             "set": 1,
             "details": {
-                "name": "Боец",
-                "picture": "fighter",
                 "atk": 4,
                 "def": 8,
                 "vanguard": "Перехват",
@@ -200,8 +174,6 @@
             "picture": "gunner",
             "set": 1,
             "details": {
-                "name": "Стрелок",
-                "picture": "gunner",
                 "atk": 5,
                 "def": 4,
                 "vanguard": "Дальняя атака. +3 к силе атаки против героев с перехватов",
@@ -215,8 +187,6 @@
             "picture": "healer",
             "set": 1,
             "details": {
-                "name": "Целитель",
-                "picture": "healer",
                 "atk": 1,
                 "def": 4,
                 "vanguard": "Перехват. Получает на 2 урона меньше от атак",
@@ -230,8 +200,6 @@
             "picture": "homunculus",
             "set": 1,
             "details": {
-                "name": "Гомункул",
-                "picture": "homunculus",
                 "atk": 3,
                 "def": 7,
                 "vanguard": "Перехват. +2 к силе атаки",
@@ -245,8 +213,6 @@
             "picture": "trapper",
             "set": 1,
             "details": {
-                "name": "Ловчий",
-                "picture": "trapper",
                 "atk": 4,
                 "def": 5,
                 "vanguard": "Перехват. Этот герой не получает урон от дальних атак",
@@ -260,8 +226,6 @@
             "picture": "vampire",
             "set": 1,
             "details": {
-                "name": "Вампир",
-                "picture": "vampire",
                 "atk": 2,
                 "def": 6,
                 "vanguard": "Когда этот герой наносит урон, он исцеляет себе такое же количество жизней",
@@ -275,8 +239,6 @@
             "picture": "paladin",
             "set": 1,
             "details": {
-                "name": "Паладин",
-                "picture": "paladin",
                 "atk": 4,
                 "def": 6,
                 "vanguard": "Перехват",
@@ -290,14 +252,12 @@
             "picture": "oracle",
             "set": 1,
             "details": {
-                "name": "Оракул",
-                "picture": "oracle",
                 "atk": 2,
                 "def": 4,
                 "vanguard": "Посмотрите карты на руке соперника. Выберите и сбросьте одну из них",
                 "flank": "Заклинание: посмотрите верхние 5 карт своей колоды. Верните их на верх колоды в любом порядке",
                 "rear": "Вы можете свободно просматривать верхнюю карту своей колоды",
-                "order": "Сбросьте все карты с руки и возьмите из колоды на одну карту больше. (Эта карта в счет не идет)"
+                "order": "Сбросьте все карты с руки и возьмите из колоды на одну карту больше. (Эта карта в счет не идет}"
             }
         },
         {
@@ -305,8 +265,6 @@
             "picture": "summoner",
             "set": 1,
             "details": {
-                "name": "Призыватель",
-                "picture": "summoner",
                 "atk": 2,
                 "def": 5,
                 "vanguard": "Заклинание: верните героя, находящегося в ближнем бою, в руку его владельца",
@@ -320,8 +278,6 @@
             "picture": "mystic",
             "set": 1,
             "details": {
-                "name": "Мистик",
-                "picture": "mystic",
                 "atk": 1,
                 "def": 7,
                 "vanguard": "Перехват. Заклинание: исцелите весь урон и с этого героя",
@@ -335,8 +291,6 @@
             "picture": "templar",
             "set": 1,
             "details": {
-                "name": "Храмовник",
-                "picture": "templar",
                 "atk": 1,
                 "def": 6,
                 "vanguard": "Этот герой получает +1 к силе атаки за каждую единицу урона на нем",
@@ -350,8 +304,6 @@
             "picture": "illusionist",
             "set": 1,
             "details": {
-                "name": "Иллюзионист",
-                "picture": "illusionist",
                 "atk": 4,
                 "def": 5,
                 "vanguard": "Заклинание: верните героя из своего отряда в руку владельца",
@@ -365,14 +317,50 @@
             "picture": "planestalker",
             "set": 1,
             "details": {
-                "name": "Сталкер",
-                "picture": "planestalker",
                 "atk": 3,
                 "def": 7,
                 "vanguard": "Перехват. Дальняя атака",
                 "flank": "Впереди- и позадистоящие получают дальнюю атаку",
                 "rear": "Дальняя атака",
                 "order": "Нанесите по 5 урона каждому герою на флангах во всех отрядах"
+            }
+        }
+    ],
+    "leaders": [
+        {
+            "name": "Каденза",
+            "picture": "knight",
+            "set": 1,
+            "details": {
+                "hero": "Рыцарь",
+                "atk": 4,
+                "def": 20,
+                "ability": "Ваши герои и лидер получают на 1 меньше урона от атак",
+                "title": "Механическая пехотная дивизия"
+            }
+        },
+        {
+            "name": "Заамассал Кетт",
+            "picture": "planestalker",
+            "set": 1,
+            "details": {
+                "hero": "Сталкер",
+                "atk": 4,
+                "def": 19,
+                "ability": "Этот лидер обладает дальней атакой. Все герои в этом отряде получают дальнюю атаку.",
+                "title": "Сталкеры"
+            }
+        },
+        {
+            "name": "Арек Рассел Зейн",
+            "picture": "illusionist",
+            "set": 1,
+            "details": {
+                "hero": "Иллюзионист",
+                "atk": 4,
+                "def": 15,
+                "ability": "Каждый раз, когда герой или лидер соперника совершают ближнюю атаку, вы решаете, какую цель он атакует. (Новая цель должна быть в доступности для ближней атаки}.",
+                "title": "Призрачный взвод"
             }
         }
     ]

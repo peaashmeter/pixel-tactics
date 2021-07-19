@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ptapp/search_page.dart';
-import 'package:flutter/services.dart';
-import 'dart:async';
-import 'dart:convert';
+import 'json_handler.dart' as jsonHandler;
 
 class LeadersPage extends SearchPage {
   LeadersPage() : super(contentList, 'Лидеры');
@@ -25,15 +23,6 @@ class LeaderDetailsScreen extends DetailsScreen {
       required this.def,
       required this.ability,
       required this.title});
-
-  // LeaderDetailsScreen.fromJson(Map<String, dynamic> json)
-  //     : name = json['name'],
-  //       hero = json['hero'],
-  //       picture = json['picture'],
-  //       atk = json['atk'],
-  //       def = json['def'],
-  //       ability = json['ability'],
-  //       title = json['title'];
 
   Widget build(BuildContext context) {
     return DetailsWidget(
@@ -198,49 +187,4 @@ class DetailsWidget extends StatelessWidget {
   }
 }
 
-Future<Map<String, dynamic>> readJson(path) async {
-  String jsonAsString = await rootBundle.loadString(path);
-  return jsonDecode(jsonAsString) as Map<String, dynamic>;
-}
-
-List<TabItem> contentList = [
-  TabItem(
-      name: 'Каденза',
-      picture: 'knight',
-      set: 1,
-      details: LeaderDetailsScreen(
-        name: 'Каденза',
-        picture: 'knight',
-        hero: 'Рыцарь',
-        atk: 4,
-        def: 20,
-        ability: 'Ваши герои и лидер получают на 1 меньше урона от атак',
-        title: 'Механическая пехотная дивизия',
-      )),
-  TabItem(
-      name: 'Заамассал Кетт',
-      picture: 'planestalker',
-      set: 1,
-      details: LeaderDetailsScreen(
-          name: 'Заамассал Кетт',
-          picture: 'planestalker',
-          hero: 'Сталкер',
-          atk: 4,
-          def: 19,
-          ability:
-              'Этот лидер обладает дальней атакой. Все герои в этом отряде получают дальнюю атаку.',
-          title: 'Сталкеры')),
-  TabItem(
-      name: 'Арек Рассел Зейн',
-      picture: 'illusionist',
-      set: 1,
-      details: LeaderDetailsScreen(
-          name: 'Арек Рассел Зейн',
-          picture: 'illusionist',
-          hero: 'Иллюзионист',
-          atk: 4,
-          def: 15,
-          ability:
-              'Каждый раз, когда герой или лидер соперника совершают ближнюю атаку, вы решаете, какую цель он атакует. (Новая цель должна быть в доступности для ближней атаки).',
-          title: 'Призрачный взвод'))
-];
+List<TabItem> contentList = jsonHandler.leadersList;

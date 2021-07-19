@@ -21,7 +21,7 @@ class MenuPage extends StatelessWidget {
               MaterialPageRoute(builder: (buildContext) => HeroesPage())),
           child: Container(
             height: 100,
-            //color: Colors.white,
+            color: Colors.blueGrey.shade50,
             child: Row(
               children: [
                 Image.asset(
@@ -48,7 +48,7 @@ class MenuPage extends StatelessWidget {
               MaterialPageRoute(builder: (buildContext) => LeadersPage())),
           child: Container(
               height: 100,
-              //color: Colors.blueGrey.shade50,
+              color: Colors.blueGrey.shade50,
               child: Row(
                 children: [
                   Image.asset(
@@ -69,6 +69,10 @@ class MenuPage extends StatelessWidget {
           thickness: 3,
           color: Colors.black87,
         ),
+        Expanded(
+            child: Container(
+          color: Colors.blueGrey.shade50,
+        ))
       ],
     );
   }
