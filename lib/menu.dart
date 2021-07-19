@@ -11,12 +11,17 @@ class MenuPage extends StatelessWidget {
           child: Image.asset('assets/logo/logo.png'),
           color: Colors.blueGrey.shade50,
         ),
+        Divider(
+          height: 1,
+          thickness: 3,
+          color: Colors.black87,
+        ),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (buildContext) => HeroesPage())),
           child: Container(
             height: 100,
-            color: Colors.white,
+            //color: Colors.white,
             child: Row(
               children: [
                 Image.asset(
@@ -33,12 +38,17 @@ class MenuPage extends StatelessWidget {
             ),
           ),
         ),
+        Divider(
+          height: 1,
+          thickness: 3,
+          color: Colors.black87,
+        ),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (buildContext) => LeadersPage())),
           child: Container(
               height: 100,
-              color: Colors.blueGrey.shade50,
+              //color: Colors.blueGrey.shade50,
               child: Row(
                 children: [
                   Image.asset(
@@ -53,6 +63,11 @@ class MenuPage extends StatelessWidget {
                   )
                 ],
               )),
+        ),
+        Divider(
+          height: 1,
+          thickness: 3,
+          color: Colors.black87,
         ),
       ],
     );

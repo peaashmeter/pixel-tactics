@@ -78,11 +78,10 @@ class TabItem extends StatelessWidget {
   final String picture;
   final int set;
   final DetailsScreen details;
-  //int colorIndex = 0;
   final List<Color> setColors = [
-    Color(0xffe6b8af),
-    Color(0xffb6d7a8),
-    Color(0xff9fc5e8),
+    Color(0xfffee0df),
+    Color(0xffcee7bd),
+    Color(0xffb9e0fa),
     Color(0xfffce5cd),
     Color(0xffd9d9d9)
   ];

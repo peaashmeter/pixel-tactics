@@ -127,6 +127,11 @@ class DetailsWidget extends StatelessWidget {
                     ]),
               ),
             ),
+            Divider(
+              height: 1,
+              thickness: 3,
+              color: Colors.black87,
+            ),
             Row(
               children: [
                 Expanded(
@@ -147,13 +152,10 @@ class DetailsWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Expanded(
-                    child: Container(
-                  height: 50,
-                ))
-              ],
+            Divider(
+              height: 1,
+              thickness: 3,
+              color: Colors.black87,
             ),
             Row(
               children: [
@@ -174,6 +176,11 @@ class DetailsWidget extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Divider(
+              height: 1,
+              thickness: 3,
+              color: Colors.black87,
             ),
             Expanded(
               child: Container(
